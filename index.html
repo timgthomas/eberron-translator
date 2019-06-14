@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html>
+
+<head>
+   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oldenburg|Uncial+Antiqua" />
+   <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+   <h1>Salvaged Eberron Translator</h1>
+   <section>
+      <h2>Translator</h2>
+      <form class="translator">
+         <p>
+            <label>Untranslated</label>
+            <input class="source" />
+         </p>
+         <p>
+            <label>Language</label>
+            <label class="radio"><input name="language" value="elven" type="radio" checked="checked" />Elven</label>
+            <label class="radio"><input name="language" value="goblin" type="radio" />Goblin</label>
+            <label class="radio"><input name="language" value="quor" type="radio" />Quor</label>
+         </p>
+         <p>
+            <label>Translated</label>
+            <input class="result" disabled="disabled" />
+         </p>
+         <p>
+            <button type="submit">Translate</button>
+         </p>
+      </form>
+   </section>
+   <section>
+      <h2>About the Languages</h2>
+      <h3>Elven</h3>
+      <p>Of all the common races, elves are the longest-lived. So too is their civilization the oldest, born millennia ago on the continent of Xen'drik. In the shadows of giants they learned to reason and speak, developing their own language to communicate with one another. Elven is now an ancient language, a language of memories and history, but once it was a language of revolution.</p>
+      <p>This Common to Elven translator is a tool for anyone who wishes to create words that sound like the language of the Aerenal elves. While it does not actually translate known Elven words, like "port" into "pylas," it reproduces the elegance and mystery of the Elven words we have seen.</p>
+      <h3>Goblin</h3>
+      <p>Before the rise of humanity, the goblins of the Dhakaan empire dominated the continent of Khorvaire. Their proud civilization was founded on martial discipline and might rather than magic, psionics, or divine power. Between the Xoriat invasion and the arrival of new settlers on Khorvaire, the Dhakaan empire slowly crumbled. Many goblins live as an impoverished underclass in the major cities of the Five Kingdoms, and the nation of Darguun is but a pale shadow of their historic glory. Heirs of Dhakaan remain, however, and plot their return...</p>
+      <p>This Common to Goblin translator is a tool for anyone who wishes to create words that sound like the language of Eberron's goblins. While it does not actually translate known Goblin words, like "sharaat" into "silent," it reproduces the harsh and exotic sounds of the ancient Goblin tongue. Note: When translating compund words, seperate all components by dashes or spaces.</p>
+      <h3>Quor</h3>
+      <p>The mysterious kalashtar and Inspired speak Quor, the language of dreams. Quor does not come easily to humanoid lips, forming a combination of hard consonants, hissing sibilants and soft vowels. In the throats of the unearthly quori, though, it is alternately menacing and beautiful.</p>
+      <p>This Common to Quor translator is a tool for anyone who wishes to add flavor to kalashtar or Inspired characters, create hidden messages, or create names for quori NPCs.</p>
+      <p>Translation Rules:</p>
+      <p>When translating compound words, seperate all components by dash or space.</p>
+      <p>When a consonant combination results in unwieldy word beginnings or ends, try translating only the first letter of the combination.</p>
+      <p>Do not translate plural forms; Quor adds an -i to denote plural forms (For most words, this can be duplicated by using a plural-u instead of the normal plural -s)</p>
+   </section>
+    <footer>
+      <p>Resurrected from <a href="https://eclipsegaming.pbworks.com/f/aerenal_translator.html">Jhonen Olain's Eberron Journal</a>, developed by Skye Freeman and programmed by Oliver "Knight Otu" Frank.</p>
+    </footer>
+
+   <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+   <script src="elven.js"></script>
+   <script src="goblin.js"></script>
+   <script src="quor.js"></script>
+   <script>
+      (function(global) {
+
+         $('.translator').on('submit', function() {
+            var $source = $(this).find('.source');
+            var result = '';
+
+            try {
+               var language = $('[name=language]:checked').val();
+               var translator = global[language];
+               result = translator($source.val());
+            } catch(e) {
+               result = "(Error)";
+               console.log(e);
+            }
+
+            $(this).find('.result').val(result);
+
+            return false;
+         });
+
+         $(function() {
+            $('.source').focus();
+         });
+
+      })(this);
+   </script>
+
+</body>
+
+</html>
