@@ -9,6 +9,6 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (ex) {
       output = '(Error)'
     }
-    document.querySelector('#output').value = output
+    document.querySelector('#result').value = output
   })
 })

@@ -1,17 +1,18 @@
 <!doctype html>
 <html>
 <head>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
   <title>Salvaged Eberron Translator</title>
 </head>
 <body>
   <h1>Salvaged Eberron Translator</h1>
   <form>
-    <label>
-      <span>Input</span>
-      <input id="input" autofocus>
-    </label>
     <p>
+      <label for="input">Input</label>
+      <input id="input" type="text" autofocus>
+    </p>
+    <p class="radio">
       <span>Language</span>
       <label>
         <input name="language" value="elven" type="radio" checked>
@@ -26,17 +27,15 @@
         <span>Quor</span>
       </label>
     </p>
-    <label>
-      <span>Output</span>
-      <input id="output">
-    </label>
+    <p>
+      <label for="result">Result</label>
+      <input id="result" type="text" readonly>
+    </p>
     <p>
       <button type="submit">Translate</button>
     </p>
   </form>
-  <footer>
-    <p>Resurrected from <a href="https://eclipsegaming.pbworks.com/f/aerenal_translator.html">Jhonen Olain's Eberron Journal</a>: developed by Skye Freeman and programmed by Oliver "Knight Otu" Frank.</p>
-  </footer>
+  <footer>Resurrected from <a href="https://eclipsegaming.pbworks.com/f/aerenal_translator.html">Jhonen Olain's Eberron Journal</a>: developed by Skye Freeman and programmed by Oliver "Knight Otu" Frank.</footer>
   <script src="lang-elven.js"></script>
   <script src="lang-goblin.js"></script>
   <script src="lang-quor.js"></script>
