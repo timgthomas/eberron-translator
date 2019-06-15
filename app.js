@@ -1,10 +1,15 @@
 let previousResults = []
 let translate = () => {
   let input = document.querySelector('#input').value.trim()
+  if (!input) { return; }
   let language = document.querySelector('[name="language"]:checked').value
+  let outputParts = []
   let output
   try {
-    output = window[language](input)
+    for (let inputPart of input.split(' ')) {
+      outputParts.push(window[language](inputPart))
+    }
+    output = outputParts.join(' ')
     if (previousResults.slice(-1)[0] !== output) {
       previousResults.push(output)
     }

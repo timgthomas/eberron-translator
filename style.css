@@ -22,6 +22,7 @@
   --lang-quor-text: #ed8d8d;
 
   box-sizing: border-box;
+  font-size: 62.5%;
 }
 
 body {
@@ -34,16 +35,46 @@ body {
 
 /* Typography --------------------------------------------------------------- */
 
-h1 {
-  font-size: large;
+@font-face {
+  font-family: 'Zilla Slab';
+  font-weight: 300;
+  src: url('ZillaSlab-300.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: oblique;
+  font-weight: 300;
+  src: url('ZillaSlab-300i.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
   font-weight: 600;
-  margin: 10px 0;
+  src: url('ZillaSlab-600.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Zilla Slab';
+  font-style: oblique;
+  font-weight: 600;
+  src: url('ZillaSlab-600i.otf') format('opentype');
+}
+
+h1 {
+  font: 600 1.4rem / 1 'Zilla Slab';
+  letter-spacing: 0.25rem;
+  margin: 20px 0;
   text-align: center;
+  text-transform: uppercase;
 }
 
 footer {
-  font-size: small;
+  color: #666;
+  font: 300 1.2rem / 1.5 'Zilla Slab';
+  margin: 0 auto 20px;
   text-align: center;
+  width: 300px;
 }
 
 /* Inputs ------------------------------------------------------------------- */
@@ -53,11 +84,14 @@ input[type='text'] {
   border: 1px solid #333;
   border-radius: var(--borders);
   color: #fff;
+  font: 300 2.0rem / 1 'Zilla Slab';
+  transition: all 350ms;
 }
 
   input[type='text']:focus {
     background-color: #222;
     border-color: #444;
+    transition-duration: 0ms;
   }
 
 input[type='radio'] + span {
@@ -69,7 +103,9 @@ input[type='radio'] + span {
   cursor: pointer;
   display: flex;
   flex-grow: 1;
+  font: 600 1.4rem / 1 'Zilla Slab';
   justify-content: center;
+  letter-spacing: 0.25rem;
   opacity: 0.35;
   text-transform: uppercase;
   transition: all 350ms;
@@ -81,15 +117,24 @@ input[type='radio'] + span {
   }
 
 button[type='submit'] {
-  background-color: transparent;
-  border: 1px solid #fff;
-  border-radius: var(--borders);
+  align-self: center;
+  background-color: #342c43;
+  border: 1px solid #685886;
+  border-radius: 100px;
+  cursor: pointer;
+  font: 600 1.4rem / 1 'Zilla Slab';
+  letter-spacing: 0.25rem;
+  width: 200px;
 }
+
+  button[type='submit']:active {
+    opacity: 0.65;
+  }
 
 /* Forms -------------------------------------------------------------------- */
 
 form {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
   form input[type='radio'] {
@@ -116,7 +161,7 @@ form {
       }
 
     form p + p {
-      margin-top: 10px;
+      margin-top: 20px;
     }
 
   form label[for],
@@ -159,4 +204,12 @@ form {
   --lang-border: var(--lang-quor-border);
   --lang-background: var(--lang-quor);
   --lang-color: var(--lang-quor-text);
+}
+
+/* Miscellaneous ------------------------------------------------------------ */
+
+#result {
+  font: 300 oblique 2.0rem / 1 'Zilla Slab';
+  margin-bottom: 20px;
+  text-align: center;
 }
