@@ -7,13 +7,26 @@
   padding: 0;
 }
 
-/* Layout ------------------------------------------------------------------- */
+/* Chrome ------------------------------------------------------------------- */
 
 :root {
+  --borders: 5px;
+  --lang-elven: #1b3667;
+  --lang-elven-border: #366cce;
+  --lang-elven-text: #6cd8ff;
+  --lang-goblin: #3b4e25;
+  --lang-goblin-border: #769c4a;
+  --lang-goblin-text: #b1cd6f;
+  --lang-quor: #6e2f2f;
+  --lang-quor-border: #dc5e5e;
+  --lang-quor-text: #ed8d8d;
+
   box-sizing: border-box;
 }
 
 body {
+  background-color: #000;
+  color: #fff;
   margin: 0 auto;
   max-width: 600px;
   padding: 0 10px;
@@ -33,11 +46,59 @@ footer {
   text-align: center;
 }
 
+/* Inputs ------------------------------------------------------------------- */
+
+input[type='text'] {
+  background-color: #111;
+  border: 1px solid #333;
+  border-radius: var(--borders);
+  color: #fff;
+}
+
+  input[type='text']:focus {
+    background-color: #222;
+    border-color: #444;
+  }
+
+input[type='radio'] + span {
+  align-items: center;
+  background-color: var(--lang-background);
+  border: 1px solid var(--lang-border);
+  border-radius: var(--borders);
+  color: var(--lang-color);
+  cursor: pointer;
+  display: flex;
+  flex-grow: 1;
+  justify-content: center;
+  opacity: 0.35;
+  text-transform: uppercase;
+  transition: all 350ms;
+}
+
+  input[type='radio']:checked + span {
+    box-shadow: 0 0 10px 0 var(--lang-background);
+    transition-duration: 0ms;
+  }
+
+button[type='submit'] {
+  background-color: transparent;
+  border: 1px solid #fff;
+  border-radius: var(--borders);
+}
+
 /* Forms -------------------------------------------------------------------- */
 
 form {
   margin-bottom: 10px;
 }
+
+  form input[type='radio'] {
+    display: none;
+  }
+
+    form input[type='radio']:checked + span {
+      opacity: 1.0;
+    }
 
   form p {
     display: flex;
@@ -45,8 +106,9 @@ form {
   }
 
     form p.radio {
-      flex-direction: row;
-      flex-wrap: wrap;
+      display: grid;
+      grid-gap: 10px;
+      grid-template-columns: repeat(3, 1fr);
     }
 
       form p > span {
@@ -59,12 +121,12 @@ form {
 
   form label[for],
   form p > span {
-    text-align: center;
-    text-transform: uppercase;
+    display: none;
+    font: 0 / 0 a;
   }
 
   form label:not([for]) {
-    align-items: center;
+    align-items: stretch;
     display: flex;
     flex-basis: 33.333%;
     height: 44px;
@@ -80,3 +142,21 @@ form {
   form button[type='submit'] {
     text-transform: uppercase;
   }
+
+/* Languages ---------------------------------------------------------------- */
+
+[value='elven'] + span {
+  --lang-border: var(--lang-elven-border);
+  --lang-background: var(--lang-elven);
+  --lang-color: var(--lang-elven-text);
+}
+[value='goblin'] + span {
+  --lang-border: var(--lang-goblin-border);
+  --lang-background: var(--lang-goblin);
+  --lang-color: var(--lang-goblin-text);
+}
+[value='quor'] + span {
+  --lang-border: var(--lang-quor-border);
+  --lang-background: var(--lang-quor);
+  --lang-color: var(--lang-quor-text);
+}

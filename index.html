@@ -10,7 +10,7 @@
   <form>
     <p>
       <label for="input">Input</label>
-      <input id="input" type="text" autofocus>
+      <input id="input" type="text" autocapitalize="off" autocomplete="off" autocorrect="off" autofocus spellcheck="false">
     </p>
     <p class="radio">
       <span>Language</span>
@@ -28,14 +28,10 @@
       </label>
     </p>
     <p>
-      <label for="result">Result</label>
-      <input id="result" type="text" readonly>
-    </p>
-    <p>
       <button type="submit">Translate</button>
     </p>
   </form>
-  <ol id="results"></ol>
+  <p id="result"></p>
   <footer>Resurrected from <a href="https://eclipsegaming.pbworks.com/f/aerenal_translator.html">Jhonen Olain's Eberron Journal</a>: developed by Skye Freeman and programmed by Oliver "Knight Otu" Frank.</footer>
   <script src="lang-elven.js"></script>
   <script src="lang-goblin.js"></script>
