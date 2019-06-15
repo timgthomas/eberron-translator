@@ -212,7 +212,7 @@ form {
 /* Miscellaneous ------------------------------------------------------------ */
 
 #result {
-  font: 300 oblique 2.0rem / 1 'Zilla Slab';
-  margin-bottom: 20px;
+  font: 600 oblique 2.0rem / 1 'Zilla Slab';
+  margin: 40px 0;
   text-align: center;
 }
